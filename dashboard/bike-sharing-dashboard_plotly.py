@@ -16,7 +16,7 @@ import os
 # +---------------+
 # +   LOAD DATA   +
 # +---------------+
-
+@st.cache_data
 def load_data():
     df_day = pd.read_csv("path_to_day.csv")
     df_hour = pd.read_csv("path_to_hour.csv")
@@ -76,7 +76,6 @@ st.sidebar.markdown("""
 # +-------------------+
 # +   VISUALIZATION   +
 # +-------------------+
-
 st.header("Visualizations")
 
 # Create layout with three columns
@@ -110,7 +109,7 @@ with col2:
     else:
         daily_count = filtered_data.groupby("dteday")["cnt"].sum().reset_index()
         fig_day_go = go.Figure()
-        fig_day_go.add_trace(go.Scatter(x=daily_count["dteday"], y=daily_count["cnt"], mode='lines+markers', name='Daily Rentals', line=dict(color='royalgreen')))
+        fig_day_go.add_trace(go.Scatter(x=daily_count["dteday"], y=daily_count["cnt"], mode='lines+markers', name='Daily Rentals', line=dict(color='green')))
         fig_day_go.update_layout(title="Daily Bike Rentals", xaxis_title="Date", yaxis_title="Total Rentals", template="plotly_white")
         st.plotly_chart(fig_day_go, use_container_width=True)
 

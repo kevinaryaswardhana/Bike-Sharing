@@ -16,7 +16,7 @@ import os
 # +---------------+
 # +   LOAD DATA   +
 # +---------------+
-
+@st.cache_data
 def load_data():
     df_day = pd.read_csv("path_to_day.csv")
     df_hour = pd.read_csv("path_to_hour.csv")
@@ -67,8 +67,7 @@ else:
 # Sidebar Personal Info
 st.sidebar.title("Personal Information")
 st.sidebar.markdown("""
-**• Nama: Kevin Arya Swardhana**
-/n
+**• Nama: Kevin Arya Swardhana**  
 **• Email: [kevinaryastarigan@gmail.com](mailto:kevinaryastarigan@gmail.com)**  
 **• Dicoding: [kevinaryaswardhana](https://www.dicoding.com/users/kevinaryaswardhana/)**  
 **• LinkedIn: [Kevin Arya Swardhana](https://www.linkedin.com/in/kevinaryaswardhana/)**  
@@ -77,7 +76,6 @@ st.sidebar.markdown("""
 # +-------------------+
 # +   VISUALIZATION   +
 # +-------------------+
-
 st.header("Visualizations")
 
 # Create layout with three columns
@@ -88,16 +86,36 @@ with col1:
     if filter_choice == "Season":
         season_count = filtered_data.groupby("season_label")["cnt"].sum().reset_index()
         fig_season_go = go.Figure(data=[
-            go.Bar(name='Bike Rentals', x=season_count["season_label"], y=season_count["cnt"], marker_color='indigo')
+            go.Bar(name='Bike Rentals', x=season_count["season_label"], y=season_count["cnt"], 
+                    marker_color='orange', text=season_count["cnt"], textposition='auto')
         ])
-        fig_season_go.update_layout(title="Bike Rentals by Season", xaxis_title="Season", yaxis_title="Total Rentals", template="plotly_white")
+        fig_season_go.update_layout(
+            title="Bike Rentals by Season", 
+            xaxis_title="Season", 
+            yaxis_title="Total Rentals", 
+            template="plotly_white",
+            font=dict(size=12),
+            plot_bgcolor='rgba(0,0,0,0)',
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=False)
+        )
         st.plotly_chart(fig_season_go, use_container_width=True)
     else:
         weather_count = filtered_data.groupby("weather_label")["cnt"].sum().reset_index()
         fig_weather_go = go.Figure(data=[
-            go.Bar(name='Bike Rentals', x=weather_count["weather_label"], y=weather_count["cnt"], marker_color='orange')
+            go.Bar(name='Bike Rentals', x=weather_count["weather_label"], y=weather_count["cnt"], 
+                    marker_color='orange', text=weather_count["cnt"], textposition='auto')
         ])
-        fig_weather_go.update_layout(title="Bike Rentals by Weather", xaxis_title="Weather", yaxis_title="Total Rentals", template="plotly_white")
+        fig_weather_go.update_layout(
+            title="Bike Rentals by Weather", 
+            xaxis_title="Weather", 
+            yaxis_title="Total Rentals", 
+            template="plotly_white",
+            font=dict(size=12),
+            plot_bgcolor='rgba(0,0,0,0)',
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=False)
+        )
         st.plotly_chart(fig_weather_go, use_container_width=True)
 
 # Column 2: Bike rentals by hour or day
@@ -105,14 +123,46 @@ with col2:
     if data_choice == "Hourly":
         hourly_count = filtered_data.groupby("hr")["cnt"].sum().reset_index()
         fig_hour_go = go.Figure()
-        fig_hour_go.add_trace(go.Scatter(x=hourly_count["hr"], y=hourly_count["cnt"], mode='lines+markers', name='Hourly Rentals', line=dict(color='royalblue')))
-        fig_hour_go.update_layout(title="Hourly Bike Rentals", xaxis_title="Hour", yaxis_title="Total Rentals", template="plotly_white")
+        fig_hour_go.add_trace(go.Scatter(
+            x=hourly_count["hr"], 
+            y=hourly_count["cnt"], 
+            mode='lines+markers', 
+            name='Hourly Rentals', 
+            line=dict(color='orange', width=2),
+            marker=dict(size=8)
+        ))
+        fig_hour_go.update_layout(
+            title="Hourly Bike Rentals", 
+            xaxis_title="Hour", 
+            yaxis_title="Total Rentals", 
+            template="plotly_white",
+            font=dict(size=12),
+            plot_bgcolor='rgba(0,0,0,0)',
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=False)
+        )
         st.plotly_chart(fig_hour_go, use_container_width=True)
     else:
         daily_count = filtered_data.groupby("dteday")["cnt"].sum().reset_index()
         fig_day_go = go.Figure()
-        fig_day_go.add_trace(go.Scatter(x=daily_count["dteday"], y=daily_count["cnt"], mode='lines+markers', name='Daily Rentals', line=dict(color='green')))
-        fig_day_go.update_layout(title="Daily Bike Rentals", xaxis_title="Date", yaxis_title="Total Rentals", template="plotly_white")
+        fig_day_go.add_trace(go.Scatter(
+            x=daily_count["dteday"], 
+            y=daily_count["cnt"], 
+            mode='lines+markers', 
+            name='Daily Rentals', 
+            line=dict(color='orange', width=2),
+            marker=dict(size=8)
+        ))
+        fig_day_go.update_layout(
+            title="Daily Bike Rentals", 
+            xaxis_title="Date", 
+            yaxis_title="Total Rentals", 
+            template="plotly_white",
+            font=dict(size=12),
+            plot_bgcolor='rgba(0,0,0,0)',
+            xaxis=dict(showgrid=False),
+            yaxis=dict(showgrid=False)
+        )
         st.plotly_chart(fig_day_go, use_container_width=True)
 
 # Column 3: Binning (Cluster Analysis)
@@ -124,9 +174,19 @@ with col3:
     binned_count.columns = ['Rental Category', 'Total']
 
     fig_binned_go = go.Figure(data=[
-        go.Bar(name='Bike Rentals', x=binned_count['Rental Category'], y=binned_count['Total'], marker_color='crimson')
+        go.Bar(name='Bike Rentals', x=binned_count['Rental Category'], y=binned_count['Total'], 
+                marker_color='orange', text=binned_count['Total'], textposition='auto')
     ])
-    fig_binned_go.update_layout(title='Clustered Bike Rentals', xaxis_title='Rental Category', yaxis_title='Total', template="plotly_white")
+    fig_binned_go.update_layout(
+        title='Clustered Bike Rentals', 
+        xaxis_title='Rental Category', 
+        yaxis_title='Total', 
+        template="plotly_white",
+        font=dict(size=12),
+        plot_bgcolor='rgba(0,0,0,0)',
+        xaxis=dict(showgrid=False),
+        yaxis=dict(showgrid=False)
+    )
     st.plotly_chart(fig_binned_go, use_container_width=True)
 
 # Show data

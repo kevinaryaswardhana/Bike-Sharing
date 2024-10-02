@@ -4,7 +4,7 @@
 # + Nama          : Kevin Arya Swardhana                           +
 # + Email         : kevinaryastarigan@gmail.com                    +
 # + Id Dicoding   : dicoding.com/users/kevinaryaswardhana/         +
-# + Created       : 14 Juni 2024                                   +
+# + Created       : 14 Juni 2024 (RENEW) 01 Oktober 2024           +
 # +================================================================+
 
 import pandas as pd

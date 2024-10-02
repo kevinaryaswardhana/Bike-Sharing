@@ -11,6 +11,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import os
 
 # +---------------+
 # +   LOAD DATA   +
@@ -18,7 +19,9 @@ import plotly.graph_objects as go
 
 @st.cache_resource
 def load_data():
-    return pd.read_csv("../data/hour.csv")
+    """Load the bike sharing dataset from the CSV file."""
+    file_path = os.path.join(os.path.dirname(__file__), '../data/hour.csv')
+    return pd.read_csv(file_path)
 
 data = load_data()
 

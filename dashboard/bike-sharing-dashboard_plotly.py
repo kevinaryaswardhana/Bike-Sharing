@@ -34,12 +34,10 @@ st.title("Bike Share Dashboard")
 # +   SIDEBAR   +
 # +-------------+
 st.sidebar.title("Information")
-st.sidebar.markdown("""
-**• Nama: Kevin Arya Swardhana**
-**• Email: [kevinaryastarigan@gmail.com](kevinaryastarigan@gmail.com)**
-**• Dicoding: [kevinaryaswardhana](https://www.dicoding.com/users/kevinaryaswardhana/)**
-**• LinkedIn: [Kevinn Arya Swardhana](https://www.linkedin.com/in/kevinaryaswardhana/)**
-""")
+st.sidebar.markdown("**Nama:** Kevin Arya Swardhana")
+st.sidebar.markdown("**Email:** [kevinaryastarigan@gmail.com](mailto:kevinaryastarigan@gmail.com)")
+st.sidebar.markdown("**Dicoding:** [kevinaryaswardhana](https://www.dicoding.com/users/kevinaryaswardhana/)")
+st.sidebar.markdown("**LinkedIn:** [Kevinn Arya Swardhana](https://www.linkedin.com/in/kevinaryaswardhana/)")
 
 st.sidebar.title("Dataset Bike Share")
 

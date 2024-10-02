@@ -67,7 +67,8 @@ else:
 # Sidebar Personal Info
 st.sidebar.title("Personal Information")
 st.sidebar.markdown("""
-**• Nama: Kevin Arya Swardhana**  
+**• Nama: Kevin Arya Swardhana**
+/n
 **• Email: [kevinaryastarigan@gmail.com](mailto:kevinaryastarigan@gmail.com)**  
 **• Dicoding: [kevinaryaswardhana](https://www.dicoding.com/users/kevinaryaswardhana/)**  
 **• LinkedIn: [Kevin Arya Swardhana](https://www.linkedin.com/in/kevinaryaswardhana/)**  

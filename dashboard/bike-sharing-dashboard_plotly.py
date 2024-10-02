@@ -103,7 +103,7 @@ with col2:
     if data_choice == "Hourly":
         hourly_count = filtered_data.groupby("hr")["cnt"].sum().reset_index()
         fig_hour_go = go.Figure()
-        fig_hour_go.add_trace(go.Scatter(x=hourly_count["hr"], y=hourly_count["cnt"], mode='lines+markers', name='Hourly Rentals', line=dict(color='royalorange')))
+        fig_hour_go.add_trace(go.Scatter(x=hourly_count["hr"], y=hourly_count["cnt"], mode='lines+markers', name='Hourly Rentals', line=dict(color='royalblue')))
         fig_hour_go.update_layout(title="Hourly Bike Rentals", xaxis_title="Hour", yaxis_title="Total Rentals", template="plotly_white")
         st.plotly_chart(fig_hour_go, use_container_width=True)
     else:

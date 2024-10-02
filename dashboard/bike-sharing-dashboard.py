@@ -140,10 +140,10 @@ st.plotly_chart(fig_weekday_count)
 peak_hour = hourly_count.loc[hourly_count['cnt'].idxmax()]
 st.write(f"Peak hour for bike sharing is {peak_hour['hr']} with {peak_hour['cnt']} rentals.")
 
-# Hourly bike share count with trendline
+# Hourly bike share count without trendline
 hourly_count = data.groupby("hr")["cnt"].sum().reset_index()
-fig_trend_hourly = px.scatter(hourly_count, x='hr', y='cnt', title="Hourly Bike Share Trend with Trend Line", trendline="ols")
-st.plotly_chart(fig_trend_hourly)
+fig_hourly_count = px.scatter(hourly_count, x='hr', y='cnt', title="Hourly Bike Share Count")
+st.plotly_chart(fig_hourly_count)
 
 # Show data source and description
 st.sidebar.title("About")

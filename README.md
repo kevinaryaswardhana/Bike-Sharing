@@ -6,7 +6,11 @@
 ## Streamlit Cloud :
 Streamlit Cloud : [Bike Sharing Dashboard](https://kevinaryaswardhana-dicoding-project-bikesharing-submission.streamlit.app/)
 
-![Bike Sharing Dashboard Preview](previewdashboard/dashboard-1.png)
+![Bike Sharing Dashboard Preview](previewdashboard/dashboard1.png)
+![Bike Sharing Dashboard Preview](previewdashboard/dashboard2.png)
+![Bike Sharing Dashboard Preview](previewdashboard/dashboard3.png)
+![Bike Sharing Dashboard Preview](previewdashboard/dashboard4.png)
+![Bike Sharing Dashboard Preview](previewdashboard/dashboard5.png)
 
 ## Setup environment
 - Install Visual Studio Code for Editor

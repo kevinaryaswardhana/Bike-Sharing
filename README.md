@@ -30,5 +30,3 @@ The steps to create your virtual environment from this project is as follows:
    streamlit run bike-sharing-dashboard.py
    ```
 4. Stop the application program by `ctrl + c`.
-
-# Bike-Sharing

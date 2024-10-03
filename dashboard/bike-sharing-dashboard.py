@@ -150,4 +150,8 @@ st.sidebar.title("About")
 st.sidebar.info(
     "Dashboard ini menampilkan visualisasi untuk sekumpulan data Bike Share. "
     "Dataset ini mengandung informasi mengenai penyewaan sepeda berdasarkan berbagai variabel seperti musim, suhu, kelembaban, dan faktor lainnya."
+<<<<<<< HEAD
 )
+=======
+)
+>>>>>>> 5041f0294ea5a87d20f6cca2a530a2a3a371c03e
